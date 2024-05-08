@@ -11,7 +11,7 @@ const API_URL = "https://project-management-api-4641927fee65.herokuapp.com"; // 
 // ... previous imports stay unchanged
 
 
-function ProjectDetailsPage (props) {
+function ProjectDetailsPage () {
   const [project, setProject] = useState(null);
   const { projectId } = useParams();
   
@@ -20,7 +20,6 @@ function ProjectDetailsPage (props) {
       .get(`${API_URL}/projects/${projectId}?_embed=tasks`)
       .then((response) => {
         const oneProject = response.data;
-        console.log(oneProject);
         setProject(oneProject);
       })
       .catch((error) => console.log(error));
